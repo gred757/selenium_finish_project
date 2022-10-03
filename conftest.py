@@ -11,6 +11,7 @@ def browser(request):
     user_lang = request.config.getoption("language")
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': user_lang})
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
     print("\nStart test \nlang: {}".format(user_lang))
     browser = webdriver.Chrome(options=options)
     yield browser

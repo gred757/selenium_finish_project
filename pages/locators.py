@@ -6,12 +6,19 @@ class MainPageLocators():
 
 
 class LoginPageLocators():
-    # LOGIN_SUBMIT_BTN = (By.NAME, "login_submit")
     LOGIN_FORM = (By.ID, "login_form")
     REGISTER_FORM  = (By.ID, "register_form")
 
-    # LOGIN_FORM_USERNAME = (By.ID, "#id_login-username")
-    # LOGIN_FORM_PASSWORD = (By.ID, "id_login-password")
-    # REGISTRATION_FORM_EMAIL = (By.ID, "#id_registration-email")
-    # REGISTRATION_FORM_PASSWORD = (By.ID, "#id_registration-password1")
-    # REGISTRATION_FORM_PASSWORD_CONFIRM = (By.ID, "#id_registration-password2")
+class ProductPageLocators():
+    ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    CART_FEEDBACK = (By.CSS_SELECTOR, "#messages > .alert:nth-child(1)")
+    PRODUCT_ADDED_MSG = (By.CSS_SELECTOR, "#messages > .alert:nth-child(1) > .alertinner")
+    PRODUCT_NAME_CATALOG = (By.CSS_SELECTOR, ".product_main > h1")
+    PRODUCT_PRICE_CATALOG = (By.CSS_SELECTOR, ".product_main > p.price_color")
+    PRODUCT_NAME_CART = (By.CSS_SELECTOR, "#messages > .alert:nth-child(1) > .alertinner > strong")
+    PRODUCT_PRICE_CART = (By.CSS_SELECTOR, "#messages > .alert:nth-child(3)  .alertinner > p strong")
+
+
+    
+
+     
