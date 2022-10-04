@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+import time
 
 class ProductPage(BasePage):
     def __init__(self, browser, url, timeout=20):
@@ -15,7 +16,7 @@ class ProductPage(BasePage):
         print(self.bookprice)    
     
     def guest_add_product_to_basket(self):
-
+        # time.sleep(2)
         add_btn = self.browser.find_element(*ProductPageLocators.ADD_BUTTON)
         add_btn.click()
     
@@ -40,5 +41,12 @@ class ProductPage(BasePage):
         assert self.bookprice in text, "Add product to cart failed. Bad price!"
 
     def should_not_be_success_message(self):
-        assert not self.is_element_present(*ProductPageLocators.PRODUCT_ADDED_MSG),\
-            "Success message is presented"
+        assert self.is_not_element_present(*ProductPageLocators.PRODUCT_ADDED_MSG),\
+            "Success message is presented, but should not be"
+    
+    def should_be_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.PRODUCT_ADDED_MSG),\
+            "Success message is presented, but should be disappeared"
+
+
+    
