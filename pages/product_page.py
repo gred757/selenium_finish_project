@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
+
 import time
 
 class ProductPage(BasePage):
@@ -13,7 +14,11 @@ class ProductPage(BasePage):
         self.bookname = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME_CATALOG).text
         self.bookprice = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_CATALOG).text
         print(self.bookname)
-        print(self.bookprice)    
+        print(self.bookprice)
+
+    def guest_go_to_basket(self):
+        basket_button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
+        basket_button.click()    
     
     def guest_add_product_to_basket(self):
         # time.sleep(2)
@@ -22,7 +27,7 @@ class ProductPage(BasePage):
     
     
     def should_be_product_adding_success(self):
-        add_feedback = self.browser.find_element(*ProductPageLocators.CART_FEEDBACK)
+        add_feedback = self.browser.find_element(*ProductPageLocators.BASKET_FEEDBACK)
         item_class = add_feedback.get_attribute("className")
         assert "success" in item_class, "Add product to cart failed!"
         # assert item_class.find("success") != -1 , "Add product to cart failed!" 

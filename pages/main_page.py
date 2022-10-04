@@ -5,6 +5,11 @@ class MainPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(MainPage, self).__init__(*args, **kwargs)
 
+    def guest_go_to_cart(self):
+        cart_button = self.browser.find_element(*MainPageLocators.BASKET_BUTTON)
+        cart_button.click()
+
+
 
     # def go_to_login_page(self):
     #     login_link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
