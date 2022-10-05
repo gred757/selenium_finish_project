@@ -1,4 +1,4 @@
-from webbrowser import BaseBrowser
+# from webbrowser import BaseBrowser
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,6 +16,12 @@ class BasePage():
         login_link.click()
         # alert = self.browser.switch_to.alert
         # alert.accept()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), \
+            "Use icon is not presented, probably unauthorized user"
+        print("User authorized!")
+
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
